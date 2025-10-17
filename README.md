@@ -10,6 +10,21 @@ We are given:
 
 The goal is to assign each item to at most one knapsack (or leave it unassigned) in order to maximize the total value of the packed items, while respecting all capacity constraints in every dimension.
 
+------
+
+**Results Summary**
+
+-For Problem 1 (20 items, 3 knapsacks, 2 dimensions), the algorithm achieved a total value of 1 065.
+All items were placed optimally across the three knapsacks, with no remaining unassigned items.
+
+-For Problem 2 (100 items, 10 knapsacks, 10 dimensions), the solver reached a total value of 52 620.
+The slower cooling schedule (cooling_rate = 0.998) enhanced convergence stability, and once again all items were successfully packed while maintaining feasibility.
+
+-For Problem 3, a large-scale test involving 5 000 items, 100 knapsacks, and 100 dimensions, the algorithm remained stable and efficient, reaching a total value of 2 490 698.
+Even at this scale, the SA procedure managed to assign every single item to a knapsack without exceeding any capacity limits.
+
+------
+
 **Main Implementation Choices**
 
 1. Choice of Simulated Annealing
@@ -22,7 +37,7 @@ A simple neighborhood operator (tweak) that slightly perturbs the current soluti
 And an exponential cooling schedule ensuring convergence over time.
 This approach aligns with course guidelines that emphasize using metaheuristics capable of adapting to complex combinatorial problems without requiring exhaustive enumeration.
 
---------------------------------------
+
 
 
 2. Unified and Parameterized Design
@@ -35,7 +50,7 @@ The number of dimensions.
 Only hyperparameters (iterations, temperature, cooling rate) are adjusted depending on the problem scale.
 This ensures flexibility, scalability, and comparability across experiments.
 
---------------------------------------
+
 
 3. Cost Function
 
@@ -43,7 +58,7 @@ The objective function returns a negative total value (since the algorithm minim
 plus a penalty term proportional to constraint violations.
 A fixed penalty factor (penalty_factor = 10.0) was chosen to discourage infeasible solutions while preserving exploration in borderline cases.
 
---------------------------------------
+
 
 4. Neighborhood Operator (Tweak)
 
@@ -52,7 +67,7 @@ The tweak strength is reduced over time, allowing:
 Broad exploration in the early phase,
 Fine local optimization in later iterations.
 
---------------------------------------
+
 
 5. Cooling Schedule
 
