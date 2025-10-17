@@ -14,13 +14,13 @@ The goal is to assign each item to at most one knapsack (or leave it unassigned)
 
 **Results Summary**
 
--For Problem 1 (20 items, 3 knapsacks, 2 dimensions), the algorithm achieved a total value of 1 065.
+-For Problem 1 (20 items, 3 knapsacks, 2 dimensions), the algorithm achieved a total value of **1 065**.
 All items were placed optimally across the three knapsacks, with no remaining unassigned items.
 
--For Problem 2 (100 items, 10 knapsacks, 10 dimensions), the solver reached a total value of 52 620.
+-For Problem 2 (100 items, 10 knapsacks, 10 dimensions), the solver reached a total value of **52 620**.
 The slower cooling schedule (cooling_rate = 0.998) enhanced convergence stability, and once again all items were successfully packed while maintaining feasibility.
 
--For Problem 3, a large-scale test involving 5 000 items, 100 knapsacks, and 100 dimensions, the algorithm remained stable and efficient, reaching a total value of 2 490 698.
+-For Problem 3, a large-scale test involving 5 000 items, 100 knapsacks, and 100 dimensions, the algorithm remained stable and efficient, reaching a total value of **2 490 698**.
 Even at this scale, the SA procedure managed to assign every single item to a knapsack without exceeding any capacity limits.
 
 ------
